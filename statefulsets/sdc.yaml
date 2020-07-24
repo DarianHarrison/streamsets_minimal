@@ -1,12 +1,35 @@
-# ---
+---
+kind: StorageClass
+apiVersion: storage.k8s.io/v1beta1
+metadata:
+  name: default
+provisioner: kubernetes.io/gce-pd
+parameters:
+  type: pd-ssd
+  zone: us-west1-a
+# apiVersion: storage.k8s.io/v1
 # kind: StorageClass
-# apiVersion: storage.k8s.io/v1beta1
 # metadata:
-#   name: default
-# provisioner: kubernetes.io/gce-pd
+#   annotations:
+#     storageclass.kubernetes.io/is-default-class: "true"
+#   name: confluent-storage
+#   selfLink: /apis/storage.k8s.io/v1/storageclasses/default
 # parameters:
-#   type: pd-ssd
-#   zone: us-west1-a
+#   cldbHosts: 10.163.168.146:7222
+#   cluster: hcp.mapr.cluster
+#   csi.storage.k8s.io/provisioner-secret-name: mapr-user-secret
+#   csi.storage.k8s.io/provisioner-secret-namespace: mapr-csi
+#   csiNodePublishSecretName: mapr-ticket-secret
+#   csiNodePublishSecretNamespace: mapr-csi
+#   mountPrefix: /hcp
+#   namePrefix: k8s-12-
+#   platinum: "false"
+#   restServers: 10.163.168.146:8443
+#   securityType: secure
+#   tenantuser: k8s-12
+# provisioner: com.mapr.csi-kdf
+# reclaimPolicy: Delete
+# volumeBindingMode: Immediate
 ---
 apiVersion: v1
 kind: Service
@@ -56,6 +79,9 @@ spec:
         image: streamsets/datacollector
         ports:
         - containerPort: 18630
+        # env:
+        # - name: SDC_JAVA_OPTS
+        #   value: "-Dmaprlogin.password.enabled=true"
           name: ui
         readinessProbe:
           exec:
