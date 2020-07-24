@@ -17,7 +17,7 @@ spec:
       containers:
       - name : exec-sdc
         # pull sdc-dpm docker image which is present in gcp container registry
-        image: darianharrison89/sss:0.0.1
+        image: darianharrison89/ss:0.0.1
         imagePullPolicy: Always
         ports:
         - containerPort: 18360
