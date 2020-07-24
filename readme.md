@@ -23,7 +23,7 @@ push to image repo hub
 docker push darianharrison89/ss:0.0.1
 ```
 
-make sure to edit and modify docker images on the following yaml files before creating deployment
+make sure to add your own "image: darianharrison89/ss:0.0.1" on the following files
 ```
 design-sdc/design-sdc.yaml
 exec-sdc/exec-sdc.yaml
