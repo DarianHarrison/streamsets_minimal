@@ -23,6 +23,12 @@ push to image repo hub
 docker push darianharrison89/ss:0.0.1
 ```
 
+make sure to edit and modify docker images on the following yaml files before creating deployment
+```
+design-sdc/design-sdc.yaml
+exec-sdc/exec-sdc.yaml
+```
+
 on k8's cluster first create ns, switch context:
 ```
 https://github.com/DarianHarrison/streamsets_minimal
