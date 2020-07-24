@@ -79,9 +79,9 @@ spec:
         image: streamsets/datacollector
         ports:
         - containerPort: 18630
-        # env:
-        # - name: SDC_JAVA_OPTS
-        #   value: "-Dmaprlogin.password.enabled=true"
+        env:
+        - name: SDC_JAVA_OPTS
+          value: "-Dmaprlogin.password.enabled=true"
           name: ui
         readinessProbe:
           exec:

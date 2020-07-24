@@ -53,13 +53,10 @@ https://streamsets.com/documentation/controlhub/latest/help/controlhub/UserGuide
 ```
 clone project (on machien with higher docker version)
 ```
-git clone https://github.com/DarianHarrison/streamsets
-cd streamsets
+git clone https://github.com/DarianHarrison/streamsets_minimal
+cd streamsets_minimal
 ```
-vi Docerfile
-```
-ENV PATH="/opt/gtk/bin:${PATH}"
-```
+
 
 build image
 ```
@@ -75,8 +72,6 @@ streamsets-datacollector-mapr_6_1-mep6-lib \
 --build-arg HTTPS_PROXY=http://web-proxy.corp.hpecorp.net:8080 \
 .
 ```
-
-
 ```
 docker push darianharrison89/ss:0.0.1
 ```
@@ -84,7 +79,7 @@ docker push darianharrison89/ss:0.0.1
 BLOG:
 first create ns, switch context:
 ```
-https://github.com/DarianHarrison/streamsets
+https://github.com/DarianHarrison/streamsets_minimal
 cd streamsets
 kubectl apply -f design-sdc/namespace.yaml
 kubectl config set-context --current --namespace=streamsets
