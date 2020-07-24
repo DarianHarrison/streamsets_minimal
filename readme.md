@@ -42,12 +42,13 @@ create secrets:
 kubectl create secret generic mysecrets --from-literal=dpmuser=user@org --from-literal=dpmpassword=password
 ```
 
-deploy 2 types deployments: “Design” deployment with one SDC and “Execution” deployment with many.
+deploy 2 types deployments: "Design" deployment with one SDC and "Execution" deployment with many. (note: Wait few minutes for containers to create)
+
 ```
 kubectl apply -f design-sdc/
 kubectl apply -f exec-sdc/
 kubectl scale deployment exec-sdc --replicas=3
-kubectl get all
+watch kubectl get all
 ```
 
 view on browser
@@ -58,11 +59,11 @@ kubectl get svc
 user:admin
 pass:admin
 
-then create statefulsets
+then create statefulsets (note: Wait few minutes for containers to create)
 ```
 kubectl apply -f statefulsets
+watch kubectl get all
 ```
-
 
 resources:
 ```
@@ -74,7 +75,15 @@ https://streamsets.com/documentation/datacollector/latest/help/datacollector/Use
 https://github.com/streamsets/datacollector-kubernetes
 ```
 
-////////////////////////// todos //////////////////////////////////////////
+setup and general references:
+```
+https://streamsets.com/blog/scaling-out-streamsets-with-kubernetes/
+https://streamsets.com/documentation/datacollector/latest/help//datacollector/UserGuide/Installation/MapR-Prerequisites.html#concept_rt3_p5p_qcb
+https://archives.streamsets.com/datacollector
+https://github.com/onefoursix/sdc-k8s-deployment-with-custom-config
+```
+
+////////////////////////// TODOS //////////////////////////////////////////
 
 tasks:
 
@@ -87,18 +96,3 @@ Test:
 Regarding test plans, we use StreamSets Test Framework that creates environments via docker, automates creation of pipelines and manages configurations and then runs pipelines in an automated way in the environments it creates.
 https://streamsets.com/blog/introducing-the-streamsets-test-framework/
 https://streamsets.com/documentation/stf/latest/
-
-setup docs:
-https://streamsets.com/blog/scaling-out-streamsets-with-kubernetes/
-
-general docs:
-https://streamsets.com/documentation/controlhub/latest/help/controlhub/UserGuide/GettingStarted/GettingStarted_title.html
-
----------------------------
-TESTS
----------------------------
-setup,general docs:
-```
-https://streamsets.com/blog/scaling-out-streamsets-with-kubernetes/
-https://streamsets.com/documentation/controlhub/latest/help/controlhub/UserGuide/GettingStarted/GettingStarted_title.html
-```
