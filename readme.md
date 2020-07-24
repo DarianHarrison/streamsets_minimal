@@ -64,8 +64,6 @@ kubectl apply -f statefulsets
 ```
 
 
-////////////////////////// INTERNAL WORK FILES //////////////////////////////////////////
-
 resources:
 ```
 https://github.com/onefoursix/sdc-k8s-deployment-with-custom-config#example-1-baked-in-configuration-and-how-to-set-java-opts
@@ -76,18 +74,14 @@ https://streamsets.com/documentation/datacollector/latest/help/datacollector/Use
 https://github.com/streamsets/datacollector-kubernetes
 ```
 
+////////////////////////// todos //////////////////////////////////////////
+
 tasks:
 
 *   need to read/write to/from local/external kdf
 *   Finish setup of Streamsets on HPE-CP
 *   Run the test framework
 *   Time permitting finalize the test plan for StreamSets on HPE-CP
-
-streamsets-datacollector-mapr_6_1-lib, 
-streamsets-datacollector-mapr_6_1-mep6-lib
-
-Deploy:
-Docker is the easiest route of deploying an image of Data Collector in the container platform.
 
 Test:
 Regarding test plans, we use StreamSets Test Framework that creates environments via docker, automates creation of pipelines and manages configurations and then runs pipelines in an automated way in the environments it creates.
