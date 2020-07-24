@@ -65,16 +65,6 @@ kubectl apply -f statefulsets
 watch kubectl get all
 ```
 
-resources:
-```
-https://github.com/onefoursix/sdc-k8s-deployment-with-custom-config#example-1-baked-in-configuration-and-how-to-set-java-opts
-https://github.com/onefoursix/control-agent-k8s-deployment
-https://streamsets.com/documentation/datacollector/latest/help/datacollector/UserGuide/Installation/MapR-Prerequisites.html
-https://streamsets.com/documentation/datacollector/latest/help/datacollector/UserGuide/Installation/AddtionalStageLibs.html?hl=streamsets-datacollector-mapr_6_1-lib
-https://streamsets.com/documentation/datacollector/latest/help/datacollector/UserGuide/Installation/AddtionalStageLibs.html#concept_evs_xkm_s5
-https://github.com/streamsets/datacollector-kubernetes
-```
-
 setup and general references:
 ```
 https://streamsets.com/blog/scaling-out-streamsets-with-kubernetes/
