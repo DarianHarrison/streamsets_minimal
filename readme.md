@@ -64,7 +64,7 @@ kubectl apply -f statefulsets
 ```
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////// INTERNAL WORK FILES //////////////////////////////////////////
 
 resources:
 ```
@@ -99,20 +99,6 @@ https://streamsets.com/blog/scaling-out-streamsets-with-kubernetes/
 
 general docs:
 https://streamsets.com/documentation/controlhub/latest/help/controlhub/UserGuide/GettingStarted/GettingStarted_title.html
-
----------------------------
-NEW CONFIGURATION
----------------------------
-
-For creating a custom image with DataCollector (SDC) with the MapR libraries:
-1.	Build a custom image for Data Collector and ensure the below are configured. Step by step instructions are here: https://github.com/streamsets/control-agent-quickstart/tree/master/custom-datacollector-docker-image
-o	The stage libraries required for MapR 6.1 are:
-	streamsets-datacollector-mapr_6_1-lib
-	streamsets-datacollector-mapr_6_1-mep6-lib
-o	MapR 6.1 cluster is secure by default. See this doc: https://streamsets.com/documentation/datacollector/latest/help//datacollector/UserGuide/Installation/MapR-Prerequisites.html#concept_rt3_p5p_qcb Hence we need to ensure that the docker image is configured to connect to secure MapR clusters. Example of how to do this in the Dockerfile is here.
-	export SDC_JAVA_OPTS="${SDC_JAVA_OPTS} -Dmaprlogin.password.enabled=true"
-o	Also note that docker runs as 'root'. If the connection to MapR needs to be made with a different user, then that would also have to be taken care of. https://streamsets.com/documentation/datacollector/latest/help//datacollector/UserGuide/Installation/MapR-Prerequisites.html#concept_rt3_p5p_qcb
-
 
 ---------------------------
 TESTS
