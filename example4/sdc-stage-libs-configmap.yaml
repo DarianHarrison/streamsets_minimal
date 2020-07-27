@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sdc-stage-libs-list
+data:
+  sdc-stage-libs: |
+    streamsets-datacollector-jdbc-lib
+    streamsets-datacollector-apache-kafka_1_0-lib
+    streamsets-datacollector-elasticsearch_5-lib
+    streamsets-datacollector-mapr_6_1-lib
+    streamsets-datacollector-mapr_6_1-mep6-lib

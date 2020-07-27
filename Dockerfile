@@ -1,6 +1,8 @@
 ARG SDC_VERSION=3.16.1
 FROM streamsets/datacollector:${SDC_VERSION}
-ARG SDC_LIBS
-RUN "${SDC_DIST}/bin/streamsets" stagelibs -install="${SDC_LIBS}"
-COPY --chown=admin:admin resources/ ${SDC_RESOURCES}/
-COPY --chown=admin:admin sdc-extras/ ${STREAMSETS_LIBRARIES_EXTRA_DIR}/
+
+# Copy the stage libs and enterprise stage libs
+COPY --chown=admin:admin streamsets-libs ${SDC_DIST}/streamsets-libs
+
+# Copy the custom sdc.properties file into the image
+COPY --chown=admin:admin sdc-conf/ ${SDC_CONF}/

@@ -59,11 +59,8 @@ kubectl get svc
 user:admin
 pass:admin
 
-then create statefulsets (note: Wait few minutes for containers to create)
-```
-kubectl apply -f statefulsets
-watch kubectl get all
-```
+
+note: 3 option "statefulset" is not recommended by authors
 
 setup and general references:
 ```
