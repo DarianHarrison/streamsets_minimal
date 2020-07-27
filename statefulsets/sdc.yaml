@@ -8,8 +8,6 @@
 #   type: pd-ssd
 #   zone: us-west1-a
 # ---
-#   mountPrefix: /hcp
-#   namePrefix: k8s-12- # depending on which 
 #   platinum: "false"
 #   tenantuser: k8s-12 # modify here
 # ---
@@ -85,6 +83,13 @@ spec:
       containers:
       - name: datacollector
         image: streamsets/datacollector
+        resources:
+          requests:
+            memory: "4Gi"
+            cpu: "2"
+          limits:
+            memory: "4Gi"
+            cpu: "2"
         ports:
         - containerPort: 18630
         env:
