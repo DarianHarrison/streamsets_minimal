@@ -67,7 +67,7 @@ spec:
           {
             "name": "init-datacollector-data",
             "image": "busybox",
-            "command": ["sh", "-c", "chown -R 20159 /data /opt/streamsets-datacollector/streamsets-libs"],
+            "command": ["sh", "-c", "chown -R admin /data /opt/streamsets-datacollector/streamsets-libs"],
             "volumeMounts": [
               {"name": "data", "mountPath": "/data", "subPath": "data"},
               {"name": "data", "mountPath": "/opt/streamsets-datacollector/streamsets-libs", "subPath": "stagelibs"}
@@ -90,10 +90,16 @@ spec:
         - containerPort: 18630
           name: ui
         env:
-        - name: SDC_JAVA_OPTS
+        - name: SDC_JAVA8_OPTS
           value: "-Dmaprlogin.password.enabled=true"
         - name: SDC_HOME
           value: "/opt/streamsets-datacollector"
+        - name: SDC_USER
+          value: "admin"
+        - name: SDC_DATA
+          value: "/var/lib/sdc"          
+        - name: SDC_GROUP
+          value: "admin"                    
         - name: SDC_CONF
           value: "/etc/sdc"
         - name: MAPR_HOME
@@ -108,8 +114,8 @@ spec:
           value: "/mapr"
         - name: CLDB_HOSTS
           value: "10.20.30.137"
-        # command: ["/usr/bin/systemctl"]
-        # args: ["daemon-reload"]
+        # command: ["bin/streamsets"]
+        # args: ["setup-mapr"]
         readinessProbe:
           exec:
             command: ["curl", "127.0.0.1:18630/public-rest/ping"]
