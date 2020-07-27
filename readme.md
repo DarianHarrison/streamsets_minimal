@@ -80,9 +80,19 @@ tasks:
 *   need to read/write to/from local/external kdf
 *   Finish setup of Streamsets on HPE-CP
 *   Run the test framework
-*   Time permitting finalize the test plan for StreamSets on HPE-CP
 
 Test:
 Regarding test plans, we use StreamSets Test Framework that creates environments via docker, automates creation of pipelines and manages configurations and then runs pipelines in an automated way in the environments it creates.
 https://streamsets.com/blog/introducing-the-streamsets-test-framework/
 https://streamsets.com/documentation/stf/latest/
+
+//personla notes
+
+to create dynamic pv,pvc you can do sepparately with cspaces, or within same saprk app, when prompted to create dyamic pv,pvc 
+
+Please note secret name: mapr-user-secret-3727452297 for later use.
+Please note PVC name: mapr-csi-pvc-1830751614 for later use.
+Please note PV name: mapr-csi-pv-1418556951 for later use.
+
+
+
