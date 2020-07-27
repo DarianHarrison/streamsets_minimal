@@ -1,4 +1,37 @@
----
+# ---
+# kind: StorageClass
+# apiVersion: storage.k8s.io/v1beta1
+# metadata:
+#   name: default
+# provisioner: kubernetes.io/gce-pd
+# parameters:
+#   type: pd-ssd
+#   zone: us-west1-a
+# ---
+# apiVersion: storage.k8s.io/v1
+# kind: StorageClass
+# metadata:
+#   annotations:
+#     storageclass.kubernetes.io/is-default-class: "true"
+#   name: streamsets-storage
+#   selfLink: /apis/storage.k8s.io/v1/storageclasses/default
+# parameters:
+#   cldbHosts: 10.163.168.146:7222 # modify here
+#   cluster: hcp.mapr.cluster
+#   csi.storage.k8s.io/provisioner-secret-name: mapr-user-secret
+#   csi.storage.k8s.io/provisioner-secret-namespace: mapr-csi
+#   csiNodePublishSecretName: mapr-ticket-secret
+#   csiNodePublishSecretNamespace: mapr-csi
+#   mountPrefix: /hcp
+#   namePrefix: k8s-12- # depending on which 
+#   platinum: "false"
+#   restServers: 10.163.168.146:8443 # modify here 
+#   securityType: secure 
+#   tenantuser: k8s-12 # modify here
+# provisioner: com.mapr.csi-kdf 
+# reclaimPolicy: Delete 
+# volumeBindingMode: Immediate 
+# ---
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
