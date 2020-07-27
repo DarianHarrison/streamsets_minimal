@@ -7,20 +7,14 @@ cd streamsets_minimal
 build image 
 ```
 docker build \
--t darianharrison89/ss:0.0.1 \
---build-arg SDC_LIBS=\
-streamsets-datacollector-jdbc-lib,\
-streamsets-datacollector-apache-kafka_1_0-lib,\
-streamsets-datacollector-elasticsearch_5-lib,\
-streamsets-datacollector-mapr_6_1-lib,\
-streamsets-datacollector-mapr_6_1-mep6-lib \
+-t darianharrison89/ss:0.0.2 \
 --build-arg http_proxy=http://web-proxy.corp.hpecorp.net:8080 \
 --build-arg HTTPS_PROXY=http://web-proxy.corp.hpecorp.net:8080 \
 .
 ```
 push to image repo hub
 ```
-docker push darianharrison89/ss:0.0.1
+docker push darianharrison89/ss:0.0.2
 ```
 
 make sure to add your own "image: darianharrison89/ss:0.0.1" on the following files
