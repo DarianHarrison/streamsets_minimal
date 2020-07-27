@@ -4,7 +4,7 @@ git clone https://github.com/DarianHarrison/streamsets_minimal
 cd streamsets_minimal
 ```
 
-build image
+build image 
 ```
 docker build \
 -t darianharrison89/ss:0.0.1 \
@@ -32,7 +32,7 @@ exec-sdc/exec-sdc.yaml
 on k8's cluster first create ns, switch context:
 ```
 https://github.com/DarianHarrison/streamsets_minimal
-cd streamsets
+cd streamsets_minimal
 kubectl apply -f design-sdc/namespace.yaml
 kubectl config set-context --current --namespace=streamsets
 ```
@@ -89,10 +89,3 @@ https://streamsets.com/documentation/stf/latest/
 //personla notes
 
 to create dynamic pv,pvc you can do sepparately with cspaces, or within same saprk app, when prompted to create dyamic pv,pvc 
-
-Please note secret name: mapr-user-secret-3727452297 for later use.
-Please note PVC name: mapr-csi-pvc-1830751614 for later use.
-Please note PV name: mapr-csi-pv-1418556951 for later use.
-
-
-
