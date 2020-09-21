@@ -68,7 +68,7 @@ spec:
   - metadata:
       name: ss-persistent-storage
     spec:
-      storageClassName: example.com/nfs
+      storageClassName: managed-nfs-storage
       accessModes: [ "ReadWriteOnce" ]
       resources:
         requests:
