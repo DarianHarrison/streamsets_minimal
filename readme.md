@@ -61,7 +61,8 @@ pass:admin
 
 then create statefulsets (note: Wait few minutes for containers to create)
 ```
-kubectl apply -f statefulsets
+kubectl apply -f statefulsets/sdc2.yaml (generic storage)
+kubectl apply -f statefulsets/sdc.yaml (mapr storage)
 watch kubectl get all
 ```
 
