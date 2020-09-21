@@ -78,7 +78,7 @@ spec:
   - metadata:
       name: data
       annotations:
-        volume.alpha.kubernetes.io/storage-class: ss-storage-class
+        volume.alpha.kubernetes.io/storage-class: streamsets-storage
     spec:
       accessModes: [ "ReadWriteOnce" ]
       resources:
