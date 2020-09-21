@@ -1,3 +1,13 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  # annotations:
+  #   storageclass.kubernetes.io/is-default-class: "true"
+  name: ss-storage-class
+provisioner: nfs-client-provisioner # com.mapr.csi-kdf
+reclaimPolicy: Delete
+volumeBindingMode: Immediate
+---
 apiVersion: v1
 kind: Service
 metadata:
@@ -32,7 +42,7 @@ spec:
           {
             "name": "init-datacollector-data",
             "image": "busybox",
-            "command": ["sh", "-c", "chown -R 20159 /data /opt/streamsets-datacollector/streamsets-libs"],
+            "command": ["sh", "-c", "chown -R admin /data /opt/streamsets-datacollector/streamsets-libs"],
             "volumeMounts": [
               {"name": "data", "mountPath": "/data", "subPath": "data"},
               {"name": "data", "mountPath": "/opt/streamsets-datacollector/streamsets-libs", "subPath": "stagelibs"}
@@ -66,10 +76,11 @@ spec:
           subPath: stagelibs
   volumeClaimTemplates:
   - metadata:
-      name: ss-persistent-storage
+      name: data
+      annotations:
+        volume.alpha.kubernetes.io/storage-class: ss-storage-class
     spec:
-      storageClassName: managed-nfs-storage
       accessModes: [ "ReadWriteOnce" ]
       resources:
         requests:
-          storage: 2Gi
+          storage: 1Gi
