@@ -1,4 +1,12 @@
 ---
+kind: StorageClass
+apiVersion: storage.k8s.io/v1beta1
+metadata:
+  name: managed-storage-2
+provisioner: example.com/nfs
+parameters:
+  archiveOnDelete: "false"
+---
 apiVersion: v1
 kind: Service
 metadata:
@@ -69,7 +77,7 @@ spec:
   - metadata:
       name: ss-persistent-storage
     spec:
-      storageClassName: managed-nfs-storage
+      storageClassName: managed-storage-2
       accessModes: [ "ReadWriteOnce" ]
       resources:
         requests:
